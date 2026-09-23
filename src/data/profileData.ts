@@ -69,7 +69,7 @@ export const profileData: Profile = {
   email: "sabaricontactmail@gmail.com",
   linkedin: "https://linkedin.com/in/sabaridev",
   github: "https://github.com/zabari-dev",
-  resumeUrl: "./resume.pdf",
+  resumeUrl: "./Sabarinathan_S_Resume.pdf",
   statusText: "Open to backend software engineering opportunities",
   aboutText: [
     "I am a Senior .NET Backend Developer with 3+ years of experience designing, developing, and optimizing enterprise-grade applications using C#, .NET Framework, ASP.NET Core, ASP.NET Web Forms, ASP.NET Web API, RESTful APIs, SQL Server, Entity Framework Core, Dapper, LINQ, and Microservices architecture.",

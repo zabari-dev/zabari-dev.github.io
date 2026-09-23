@@ -30,7 +30,7 @@ export const profileData: Profile = {
   email: "sabaricontactmail@gmail.com",
   linkedin: "https://linkedin.com/in/sabaridev",
   github: "https://github.com/zabari-dev",
-  resumeUrl: "./resume.pdf",
+  resumeUrl: "./Sabarinathan_S_Resume.pdf",
   photoUrl: "./profile/sabari.jpg",
   heroHeadline: "I build reliable backend systems that are scalable, maintainable and thoughtfully engineered.",
   heroSupportingText: "Senior Software Developer with 3+ years of experience building, modernizing and optimizing enterprise applications across Healthcare and FMCG domains.",

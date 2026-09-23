@@ -47,7 +47,7 @@ export const Hero: React.FC = () => {
               <a href="#contact" className="btn-editorial-primary">
                 LET'S WORK TOGETHER <ArrowUpRight size={16} />
               </a>
-              <a href={profileData.resumeUrl} target="_blank" rel="noopener noreferrer" className="btn-editorial-outline">
+              <a href={profileData.resumeUrl} download="Sabarinathan_S_Resume.pdf" target="_blank" rel="noopener noreferrer" className="btn-editorial-outline">
                 DOWNLOAD CV <Download size={15} />
               </a>
             </div>
