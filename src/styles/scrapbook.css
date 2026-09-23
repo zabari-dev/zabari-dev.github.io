@@ -1,0 +1,227 @@
+:root {
+  --font-handwritten: 'Caveat', cursive;
+  --desk-bg: #0B0E14;
+  --desk-surface: radial-gradient(circle at 50% 30%, #161C26 0%, #0B0E14 80%);
+  --paper-white: #F9F8F3;
+  --paper-cream: #F5F1E6;
+  --paper-yellow: #FFF9C4;
+  --paper-blue: #E1F5FE;
+  --paper-pink: #FCE4EC;
+  --paper-green: #E8F5E9;
+  --paper-text: #1C2024;
+  --paper-text-muted: #555E68;
+  --tape-color: rgba(238, 230, 200, 0.55);
+  --shadow-paper: 0 4px 10px rgba(0, 0, 0, 0.4), 0 15px 30px rgba(0, 0, 0, 0.35);
+  --shadow-paper-hover: 0 12px 28px rgba(0, 0, 0, 0.5), 0 25px 45px rgba(0, 0, 0, 0.45);
+}
+
+/* Desk Surface Container */
+.desk-surface {
+  background-color: var(--desk-bg);
+  background-image: 
+    radial-gradient(circle at 40% 20%, rgba(88, 166, 255, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 80% 80%, rgba(63, 185, 80, 0.05) 0%, transparent 50%),
+    linear-gradient(to bottom, rgba(11, 14, 20, 0.4), rgba(11, 14, 20, 0.8));
+  min-height: 100vh;
+  color: var(--paper-text);
+  perspective: 1200px;
+  position: relative;
+  overflow-x: hidden;
+  padding-bottom: 4rem;
+}
+
+/* Handwritten Title Style */
+.handwritten-title {
+  font-family: var(--font-handwritten);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1A237E;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+/* Base Physical Paper Card */
+.paper-card {
+  background-color: var(--paper-white);
+  color: var(--paper-text);
+  border-radius: 4px;
+  padding: 1.75rem;
+  position: relative;
+  box-shadow: var(--shadow-paper);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+}
+
+.paper-card:hover {
+  transform: translate3d(0, -6px, 12px) rotateX(1.5deg) rotateY(-1deg);
+  box-shadow: var(--shadow-paper-hover);
+}
+
+/* Cream & Sticky Note Variations */
+.paper-cream {
+  background-color: var(--paper-cream);
+}
+
+.paper-yellow {
+  background-color: var(--paper-yellow);
+}
+
+.paper-blue {
+  background-color: var(--paper-blue);
+}
+
+/* Torn Paper Edge Clip-Path */
+.torn-edge {
+  clip-path: polygon(
+    0% 0%, 
+    100% 0%, 
+    99% 95%, 97% 100%, 94% 96%, 90% 99%, 86% 95%, 82% 98%, 78% 94%, 74% 99%, 70% 95%, 
+    65% 98%, 60% 95%, 55% 99%, 50% 94%, 45% 98%, 40% 95%, 35% 99%, 30% 95%, 
+    25% 98%, 20% 94%, 15% 99%, 10% 95%, 5% 98%, 0% 94%
+  );
+  padding-bottom: 2.5rem !important;
+}
+
+/* Masking Tape Overlay */
+.masking-tape {
+  position: absolute;
+  top: -12px;
+  left: 30%;
+  width: 110px;
+  height: 26px;
+  background-color: var(--tape-color);
+  backdrop-filter: blur(2px);
+  border-left: 2px dashed rgba(200, 190, 160, 0.5);
+  border-right: 2px dashed rgba(200, 190, 160, 0.5);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  transform: rotate(-2.5deg);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.masking-tape-right {
+  left: auto;
+  right: 20%;
+  transform: rotate(3deg);
+}
+
+/* Metallic Paperclip Overlay */
+.paper-clip-visual {
+  position: absolute;
+  top: -16px;
+  left: 20px;
+  width: 24px;
+  height: 48px;
+  z-index: 20;
+  pointer-events: none;
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.4));
+}
+
+/* Spiral Notebook Surface */
+.notebook-page {
+  background-color: #FFFDF7;
+  background-image: 
+    linear-gradient(#E8EAF6 1px, transparent 1px),
+    linear-gradient(90deg, rgba(239, 83, 80, 0.3) 1px, transparent 1px);
+  background-size: 100% 1.8rem, 100% 100%;
+  background-position: 0 0.5rem, 2.5rem 0;
+  padding-left: 3.5rem !important;
+  border-left: 14px solid #37474F;
+  position: relative;
+}
+
+/* Smartphone Mockup */
+.smartphone-body {
+  width: 260px;
+  height: 480px;
+  background: #1C1C1E;
+  border: 4px solid #3A3A3C;
+  border-radius: 36px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  position: relative;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  cursor: pointer;
+}
+
+.smartphone-body:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7), 0 0 20px rgba(88, 166, 255, 0.2);
+}
+
+.smartphone-screen {
+  width: 100%;
+  height: 100%;
+  background: #0D1117;
+  border-radius: 28px;
+  overflow: hidden;
+  color: #F0F6FC;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #30363D;
+  position: relative;
+}
+
+.smartphone-notch {
+  width: 90px;
+  height: 18px;
+  background: #1C1C1E;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin: 0 auto;
+  z-index: 15;
+}
+
+/* Sticky Navigation Strip Header */
+.sticky-desk-nav {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background-color: rgba(11, 14, 20, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.75rem 0;
+}
+
+.desk-tab-link {
+  font-family: var(--font-handwritten);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #21262D;
+  background-color: var(--paper-yellow);
+  padding: 0.3rem 0.9rem;
+  border-radius: 4px 4px 0 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  display: inline-block;
+}
+
+.desk-tab-link:hover {
+  transform: translateY(-3px);
+  background-color: #FFF59D;
+  color: #000000;
+}
+
+.desk-tab-blue { background-color: var(--paper-blue); }
+.desk-tab-pink { background-color: var(--paper-pink); }
+.desk-tab-green { background-color: var(--paper-green); }
+.desk-tab-cream { background-color: var(--paper-cream); }
+
+/* Reduced Motion Fallback */
+@media (prefers-reduced-motion: reduce) {
+  .paper-card, .paper-card:hover, .smartphone-body, .smartphone-body:hover, .desk-tab-link:hover {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Responsive Layout Adjustments */
+@media (max-width: 900px) {
+  .handwritten-title {
+    font-size: 1.8rem;
+  }
+  .notebook-page {
+    padding-left: 2.2rem !important;
+  }
+}

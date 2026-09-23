@@ -1,0 +1,192 @@
+:root {
+  --font-handwritten: 'Caveat', cursive;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', Consolas, monospace;
+  
+  --desk-bg: #0C0E12;
+  --paper-cream: #F5F1E6;
+  --paper-aged: #EFEBE0;
+  --paper-white: #F8F9FA;
+  --paper-yellow: #FFF9C4;
+  --paper-graph: #F0F4F8;
+  
+  --text-dark: #1E293B;
+  --text-muted: #64748B;
+  --text-accent-blue: #1D4ED8;
+  --text-accent-red: #DC2626;
+
+  --shadow-flatlay: 0 10px 25px rgba(0, 0, 0, 0.5), 0 25px 50px rgba(0, 0, 0, 0.4);
+  --shadow-flatlay-hover: 0 18px 35px rgba(0, 0, 0, 0.65), 0 30px 65px rgba(0, 0, 0, 0.55);
+}
+
+/* Base Continuous Flatlay Canvas */
+.flatlay-container {
+  background-color: var(--desk-bg);
+  background-image: 
+    radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 65%),
+    radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.03) 0%, transparent 50%);
+  min-height: 100vh;
+  color: var(--text-dark);
+  position: relative;
+  overflow-x: hidden;
+  padding: 2.5rem 1rem 5rem 1rem;
+}
+
+/* Single Grid Canvas Layout */
+.flatlay-canvas {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* Physical Paper Base Class */
+.flatlay-object {
+  box-shadow: var(--shadow-flatlay);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  border-radius: 3px;
+  transform-style: preserve-3d;
+}
+
+.flatlay-object:hover {
+  box-shadow: var(--shadow-flatlay-hover);
+  z-index: 50 !important;
+}
+
+/* Individual Rotations & Layering */
+.rotate-neg-4 { transform: rotate(-4deg); }
+.rotate-neg-3 { transform: rotate(-3deg); }
+.rotate-neg-2 { transform: rotate(-2deg); }
+.rotate-neg-1 { transform: rotate(-1deg); }
+.rotate-1     { transform: rotate(1deg); }
+.rotate-2     { transform: rotate(2deg); }
+.rotate-3     { transform: rotate(3deg); }
+.rotate-4     { transform: rotate(4deg); }
+
+.rotate-neg-3:hover { transform: rotate(-1deg) translate3d(0, -6px, 15px) scale(1.01); }
+.rotate-neg-2:hover { transform: rotate(0deg) translate3d(0, -6px, 15px) scale(1.01); }
+.rotate-2:hover     { transform: rotate(0deg) translate3d(0, -6px, 15px) scale(1.01); }
+.rotate-3:hover     { transform: rotate(1deg) translate3d(0, -6px, 15px) scale(1.01); }
+.rotate-4:hover     { transform: rotate(2deg) translate3d(0, -6px, 15px) scale(1.01); }
+
+/* Physical Paper Textures */
+.paper-cream-bg { background-color: var(--paper-cream); }
+.paper-aged-bg  { background-color: var(--paper-aged); }
+.paper-white-bg { background-color: var(--paper-white); }
+.paper-yellow-bg { background-color: var(--paper-yellow); }
+
+/* Masking Tape */
+.scotch-tape {
+  position: absolute;
+  top: -12px;
+  width: 95px;
+  height: 24px;
+  background-color: rgba(243, 235, 204, 0.65);
+  backdrop-filter: blur(2px);
+  border-left: 2px dashed rgba(205, 195, 160, 0.6);
+  border-right: 2px dashed rgba(205, 195, 160, 0.6);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  pointer-events: none;
+}
+.tape-top-left { left: 15%; transform: rotate(-4deg); }
+.tape-top-right { right: 15%; transform: rotate(3deg); }
+.tape-center { left: 40%; transform: rotate(-1deg); }
+
+/* Metallic Brass Paperclip */
+.brass-paperclip {
+  position: absolute;
+  top: -18px;
+  left: 22px;
+  width: 22px;
+  height: 48px;
+  z-index: 25;
+  pointer-events: none;
+  filter: drop-shadow(2px 4px 5px rgba(0, 0, 0, 0.5));
+}
+
+/* Handwritten Title Styles */
+.handwritten-header {
+  font-family: var(--font-handwritten);
+  font-size: 2.3rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* Graph Paper Styling */
+.graph-paper {
+  background-color: #F8FAFC;
+  background-image: 
+    linear-gradient(rgba(148, 163, 184, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.2) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Denim Fabric Texture Patch */
+.fabric-patch {
+  background-color: #334155;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 0);
+  background-size: 8px 8px;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+}
+
+/* 3D Tech Icon Badge */
+.tech-chip-3d {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(145deg, #1E293B, #0F172A);
+  border: 1px solid #475569;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #60A5FA;
+  font-weight: 800;
+  font-size: 1.1rem;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.2);
+  transition: transform 0.2s ease;
+}
+.tech-chip-3d:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+/* Metallic Watch Frame */
+.smartwatch-frame {
+  width: 270px;
+  background: linear-gradient(135deg, #475569, #1E293B);
+  border: 3px solid #64748B;
+  border-radius: 40px;
+  padding: 10px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), inset 0 0 12px rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+/* Red Thread Accent Line */
+.thread-accent {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 2px;
+  background: repeating-linear-gradient(to bottom, #EF4444 0, #EF4444 8px, transparent 8px, transparent 14px);
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* Responsive Mobile Layout Adjustments */
+@media (max-width: 960px) {
+  .flatlay-canvas {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .rotate-neg-4, .rotate-neg-3, .rotate-neg-2, .rotate-neg-1,
+  .rotate-1, .rotate-2, .rotate-3, .rotate-4 {
+    transform: none !important;
+  }
+}
