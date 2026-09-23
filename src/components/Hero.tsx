@@ -54,47 +54,52 @@ export const Hero: React.FC = () => {
           </div>
 
           {/* Right Column: User Photo + Organic Blob + Overlaid Info Card */}
-          <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+          <div className="hero-photo-wrapper" style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%', maxWidth: '100%' }}>
             
-            {/* Soft Lavender Background Blob */}
-            <div
-              className="blob-lavender"
-              style={{
-                width: 'min(330px, 90vw)',
-                height: 'min(380px, 90vw)',
-                position: 'absolute',
-                top: '-10px',
-                zIndex: 1,
-                opacity: 0.9
-              }}
-            ></div>
-
-            {/* User Photograph Container */}
-            <div
-              style={{
-                position: 'relative',
-                zIndex: 2,
-                width: 'min(290px, 80vw)',
-                height: 'min(360px, 80vw)',
-                borderRadius: '24px',
-                overflow: 'hidden',
-                boxShadow: '0 15px 35px rgba(0,0,0,0.12)',
-                border: '4px solid var(--card-bg)'
-              }}
-            >
-              <img
-                src={profileData.photoUrl}
-                alt="Sabarinathan S"
+            <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+              {/* Soft Lavender Background Blob */}
+              <div
+                className="blob-lavender"
                 style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  objectPosition: 'center top'
+                  width: 'min(310px, 85vw)',
+                  height: 'min(350px, 85vw)',
+                  position: 'absolute',
+                  top: '-10px',
+                  zIndex: 1,
+                  opacity: 0.9
                 }}
-              />
+              ></div>
+
+              {/* User Photograph Container */}
+              <div
+                style={{
+                  position: 'relative',
+                  zIndex: 2,
+                  width: 'min(270px, 75vw)',
+                  height: 'min(340px, 75vw)',
+                  borderRadius: '24px',
+                  overflow: 'hidden',
+                  boxShadow: '0 15px 35px rgba(0,0,0,0.12)',
+                  border: '4px solid var(--card-bg)'
+                }}
+              >
+                <img
+                  src={profileData.photoUrl}
+                  alt="Sabarinathan S"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'center top'
+                  }}
+                />
+              </div>
+
+              {/* Curved Arrow Annotation */}
+              <CurvedArrowDown color="#1749D1" style={{ position: 'absolute', bottom: '-25px', left: '5%', zIndex: 5 }} />
             </div>
 
-            {/* Overlaid Information Card */}
+            {/* Information Card */}
             <div
               className="card-white hero-info-card"
               style={{
@@ -103,7 +108,7 @@ export const Hero: React.FC = () => {
                 right: '5px',
                 zIndex: 10,
                 padding: '1rem 1.25rem',
-                width: 'min(245px, 85vw)',
+                width: 'min(240px, 85vw)',
                 borderRadius: '16px'
               }}
             >
@@ -141,29 +146,10 @@ export const Hero: React.FC = () => {
               </div>
             </div>
 
-            {/* Curved Arrow Annotation */}
-            <CurvedArrowDown color="#1749D1" style={{ position: 'absolute', bottom: '-35px', left: '-15px', zIndex: 5 }} />
-
           </div>
 
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 990px) {
-          .hero-grid {
-            grid-template-columns: 1fr !important;
-            gap: 3.5rem !important;
-          }
-          .hero-info-card {
-            position: relative !important;
-            bottom: auto !important;
-            right: auto !important;
-            margin-top: -40px !important;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
-          }
-        }
-      `}</style>
     </section>
   );
 };
