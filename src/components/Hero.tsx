@@ -6,7 +6,7 @@ import { profileData } from '../data/profile';
 
 export const Hero: React.FC = () => {
   return (
-    <section style={{ padding: '2.5rem 0 3.5rem 0', minHeight: '620px', maxHeight: '760px', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden' }}>
+    <section className="hero-section" style={{ padding: 'clamp(2.5rem, 5vw, 4.5rem) 0', position: 'relative', overflow: 'hidden' }}>
       
       {/* Decorative Stars */}
       <StarDecoration size={24} color="#F5C518" style={{ position: 'absolute', top: '15px', right: '48%' }} />
@@ -33,12 +33,12 @@ export const Hero: React.FC = () => {
             </h1>
 
             {/* Headline */}
-            <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-dark)', marginBottom: '0.85rem', lineHeight: 1.35, maxWidth: '520px' }}>
+            <h2 style={{ fontSize: 'clamp(1.1rem, 2vw, 1.35rem)', fontWeight: 700, color: 'var(--text-dark)', marginBottom: '0.85rem', lineHeight: 1.35, maxWidth: '520px' }}>
               {profileData.heroHeadline}
             </h2>
 
             {/* Supporting Text */}
-            <p style={{ color: 'var(--text-muted)', fontSize: '1rem', marginBottom: '1.75rem', maxWidth: '480px', lineHeight: 1.55 }}>
+            <p style={{ color: 'var(--text-muted)', fontSize: 'clamp(0.9rem, 1.5vw, 1.05rem)', marginBottom: '1.75rem', maxWidth: '480px', lineHeight: 1.55 }}>
               {profileData.heroSupportingText}
             </p>
 
@@ -54,14 +54,14 @@ export const Hero: React.FC = () => {
           </div>
 
           {/* Right Column: User Photo + Organic Blob + Overlaid Info Card */}
-          <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
             
             {/* Soft Lavender Background Blob */}
             <div
               className="blob-lavender"
               style={{
-                width: '330px',
-                height: '380px',
+                width: 'min(330px, 90vw)',
+                height: 'min(380px, 90vw)',
                 position: 'absolute',
                 top: '-10px',
                 zIndex: 1,
@@ -74,8 +74,8 @@ export const Hero: React.FC = () => {
               style={{
                 position: 'relative',
                 zIndex: 2,
-                width: '290px',
-                height: '360px',
+                width: 'min(290px, 80vw)',
+                height: 'min(360px, 80vw)',
                 borderRadius: '24px',
                 overflow: 'hidden',
                 boxShadow: '0 15px 35px rgba(0,0,0,0.12)',
@@ -94,16 +94,16 @@ export const Hero: React.FC = () => {
               />
             </div>
 
-            {/* Overlaid White / Theme Information Card */}
+            {/* Overlaid Information Card */}
             <div
-              className="card-white"
+              className="card-white hero-info-card"
               style={{
                 position: 'absolute',
                 bottom: '-20px',
                 right: '5px',
                 zIndex: 10,
                 padding: '1rem 1.25rem',
-                maxWidth: '245px',
+                width: 'min(245px, 85vw)',
                 borderRadius: '16px'
               }}
             >
@@ -155,8 +155,12 @@ export const Hero: React.FC = () => {
             grid-template-columns: 1fr !important;
             gap: 3.5rem !important;
           }
-          .hero-name-title {
-            font-size: 3.8rem !important;
+          .hero-info-card {
+            position: relative !important;
+            bottom: auto !important;
+            right: auto !important;
+            margin-top: -40px !important;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
           }
         }
       `}</style>

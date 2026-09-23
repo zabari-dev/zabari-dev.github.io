@@ -64,16 +64,28 @@
   --shadow-hover: 0 15px 35px rgba(56, 189, 248, 0.2);
 }
 
-/* Enforce Calibri Everywhere */
+/* Enforce Calibri & Smooth Rendering */
 html, body, button, input, textarea, select, a, h1, h2, h3, h4, h5, h6, p, span, div {
   font-family: var(--font-calibri) !important;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-dark);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  line-height: 1.6;
 }
 
 /* Editorial Title Hierarchy */
 .editorial-title {
   font-family: var(--font-calibri) !important;
   color: var(--display-blue);
-  font-size: clamp(38px, 4.5vw, 68px);
+  font-size: clamp(32px, 4.5vw, 68px);
   font-weight: 700;
   line-height: 0.95;
   letter-spacing: -0.02em;
@@ -81,7 +93,7 @@ html, body, button, input, textarea, select, a, h1, h2, h3, h4, h5, h6, p, span,
 
 .hero-name-title {
   font-family: var(--font-calibri) !important;
-  font-size: clamp(36px, 4.8vw, 76px);
+  font-size: clamp(34px, 4.8vw, 76px);
   font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -106,13 +118,14 @@ html, body, button, input, textarea, select, a, h1, h2, h3, h4, h5, h6, p, span,
   transition: all var(--transition-smooth);
   border: none;
   cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .btn-editorial-primary:hover {
   background-color: var(--display-blue);
   color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(23, 73, 209, 0.2);
+  box-shadow: 0 8px 22px rgba(23, 73, 209, 0.25);
 }
 
 .btn-editorial-outline {
@@ -135,15 +148,16 @@ html, body, button, input, textarea, select, a, h1, h2, h3, h4, h5, h6, p, span,
 .btn-editorial-outline:hover {
   background-color: var(--text-dark);
   color: var(--bg-primary);
+  transform: translateY(-2px);
 }
 
-/* White / Theme Card Base */
+/* Theme Card Base */
 .card-white {
   background-color: var(--card-bg);
   border-radius: var(--radius-md);
   padding: 1.5rem;
   box-shadow: var(--shadow-card);
-  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), background-color 0.3s ease;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), background-color 0.3s ease, border-color 0.3s ease;
   border: 1px solid var(--card-border);
 }
 
@@ -201,11 +215,33 @@ html, body, button, input, textarea, select, a, h1, h2, h3, h4, h5, h6, p, span,
   border-radius: 2px;
 }
 
-/* Responsive Breakpoints */
+/* Global Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .hero-name-title {
+    font-size: clamp(32px, 4.5vw, 64px);
+  }
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 2.75rem 0;
+  }
+  .container {
+    width: calc(100% - 32px) !important;
+  }
+}
+
 @media (max-width: 600px) {
   .hero-name-title {
-    font-size: clamp(28px, 7.5vw, 44px) !important;
+    font-size: clamp(26px, 7vw, 42px) !important;
     white-space: normal !important;
+  }
+  .container {
+    width: calc(100% - 24px) !important;
+  }
+  .btn-editorial-primary, .btn-editorial-outline {
+    width: 100%;
+    justify-content: center;
   }
 }
 
